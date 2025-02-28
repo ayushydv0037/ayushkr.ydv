@@ -1,0 +1,105 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Notepad</title>
+    <style>
+        body {
+            background-color: pink;
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+        .notepad {
+            width: 80%;
+            height: 60vh;
+            background: white;
+            border: 2px solid black;
+            padding: 10px;
+            font-size: 20px;
+            outline: none;
+            resize: none;
+        }
+        .balloons {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        .balloon {
+            position: absolute;
+            bottom: -100px;
+            width: 50px;
+            height: 70px;
+            background-color: red;
+            border-radius: 50%;
+            animation: rise 5.6s linear forwards;
+        }
+        @keyframes rise {
+            0% { transform: translateY(100vh); }
+            100% { transform: translateY(-100vh); }
+        }
+        .message {
+            display: none;
+            font-size: 40px;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 4px #000;
+            animation: dance 1s infinite alternate;
+        }
+        @keyframes dance {
+            0% { transform: rotate(-5deg) scale(1.1); }
+            100% { transform: rotate(5deg) scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="balloons"></div>
+    <textarea class="notepad" placeholder="Write something..."><🎉🎂 Happy Birthday Ankita! 🎂🎉
+
+🌟 You're a shining star, 🌟
+Twinkling bright from near and far! 🌠
+
+🎁 Gifts and love, we bring to you, 🎁
+Wishing your day is filled with joy anew! 🌈
+
+🍰 Cake and candles, a celebratory treat, 🍰
+Making wishes, can't be beat! 🤩
+
+🎈 Balloons and confetti, everywhere, 🎈
+A birthday party, beyond compare! 🎉
+
+👫 Friends and family, gather 'round, 👫
+To celebrate you, and the love we've found! ❤
+
+🎂 Here's to another year, of adventure and fun, 🎂
+May all your dreams and wishes be done! 🌟
+
+Happy Birthday, dear Ankita! 🎉🎂
+
+I hope Ankita enjoys this birthday poem! 🎁/>
+    <div class="message">🎈🎉 Happy Birthday Ankita! 🎂🎁🎊</div><script>
+    function createBalloon() {
+        const balloon = document.createElement("div");
+        balloon.classList.add("balloon");
+        balloon.style.left = Math.random() * 100 + "vw";
+        balloon.style.backgroundColor = hsl(${Math.random() * 360}, 100%, 50%);
+        document.querySelector(".balloons").appendChild(balloon);
+        setTimeout(() => balloon.remove(), 5600);
+    }
+    
+    for (let i = 0; i < 30; i++) {
+        setTimeout(createBalloon, Math.random() * 1000);
+    }
+    
+    setTimeout(() => {
+        document.querySelector(".balloons").style.display = "none";
+        document.querySelector(".message").style.display = "block";
+    }, 5600);
+</script>
+
+</body>
+</html>
